@@ -29,7 +29,7 @@ module.exports = {
     updateOneDream: (req, res) => {
         Dream.findOneAndUpdate(
             {_id: req.params.id},
-            req.body,
+            req.body, 
             {new: true, runValidators: true})
             .then((updatedDream) => {
                 console.log(updatedDream)
