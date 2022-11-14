@@ -16,5 +16,6 @@ module.exports = {
             console.log(newDream)
             res.json(newDream)
         })
+        .catch((err) => console.log(err))
     }
 }
