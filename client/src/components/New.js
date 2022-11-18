@@ -14,6 +14,15 @@ const New = (props) => {
         .catch((err) => console.log(err))
         })
 
+    const createEntry = (e) => {
+        e.preventDefault();
+            const newEntry = {
+                subjectLine,
+                description
+            }
+            console.log('new entry made', newEntry)
+    }
+
 
     return (
         <div>
@@ -24,15 +33,16 @@ const New = (props) => {
                     <li> New Entry </li>
                 </ul>
             </div>
-            <form>
+            <form onSubmit={createEntry}>
                 <div className='formSubject'>
                     <label>Subject Line:</label>
-                    <input type='text' />
+                    <input type='text' onChange={ (e) => setSubjectLine(e.target.value)} />
                 </div>
                 <div className='formSubject'>
                     <label>Description:</label>
-                    <textarea cols='20' rows='5' />
+                    <textarea cols='20' rows='5' onChange={ (e) =>setDescription(e.target.value)} />
                 </div>
+                <input type='submit' value='Create New Entry' />
             </form>
         </div>
     )
