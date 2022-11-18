@@ -21,7 +21,6 @@ const Home = (props) => {
                 <ul>
                     <li> All Dreams </li>
                     <li> New Entry </li>
-                    <li> Favorite Dreams </li>
                 </ul>
             </div>
             <div className='allEntries'>
