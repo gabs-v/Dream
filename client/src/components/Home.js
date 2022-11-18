@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
+import '../static/css/Home.css'
 
 const Home = (props) => {
     const {theDreams, setTheDreams} = props
