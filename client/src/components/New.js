@@ -2,27 +2,27 @@ import React,{useState, useEffect} from 'react'
 import axios from 'axios'
 
 const New = (props) => {
+    const {dreamList, setDreamList} = props;
     const [subjectLine, setSubjectLine] = useState('');
     const [description,setDescription] = useState('');
 
-    useEffect(() => {
-        axios.post("http://localhost:8000/api/dreams")
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+        axios.post("http//localhost:8000/api/dreams", {
+            subjectLine,
+            description
+        })
         .then((res) => {
             console.log(res)
-            res.json(res)
+            console.log(res.data)
+            
+            setDreamList([...dreamList, res.data])
+            setDescription('');
+            setSubjectLine('');
         })
         .catch((err) => console.log(err))
-        })
-
-    const createEntry = (e) => {
-        e.preventDefault();
-            const newEntry = {
-                subjectLine,
-                description
-            }
-            console.log('new entry made', newEntry)
     }
-
 
     return (
         <div>
@@ -33,7 +33,7 @@ const New = (props) => {
                     <li> New Entry </li>
                 </ul>
             </div>
-            <form onSubmit={createEntry}>
+            <form onSubmit={submitHandler}>
                 <div className='formSubject'>
                     <label>Subject Line:</label>
                     <input type='text' onChange={ (e) => setSubjectLine(e.target.value)} />
