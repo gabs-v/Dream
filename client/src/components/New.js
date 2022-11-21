@@ -1,15 +1,14 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState} from 'react'
 import axios from 'axios'
 
 const New = (props) => {
-    const {dreamList, setDreamList} = props;
     const [subjectLine, setSubjectLine] = useState('');
     const [description,setDescription] = useState('');
 
     const submitHandler = (e) => {
         e.preventDefault();
 
-        axios.post("http//localhost:8000/api/dreams", {
+        axios.post("http://localhost:8000/api/dreams", {
             subjectLine,
             description
         })
@@ -17,7 +16,6 @@ const New = (props) => {
             console.log(res)
             console.log(res.data)
             
-            setDreamList([...dreamList, res.data])
             setDescription('');
             setSubjectLine('');
         })
@@ -27,7 +25,7 @@ const New = (props) => {
     return (
         <div>
             <div className='navBar'>
-                <h1>Dazed and Dreamin'</h1>
+                <h1>Dreamin'</h1>
                 <ul>
                     <li> All Dreams </li>
                     <li> New Entry </li>
