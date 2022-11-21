@@ -24,7 +24,11 @@ const Home = (props) => {
                 </ul>
             </div>
             <div className='allEntries'>
-                
+                {
+                    theDreams.map((dream,index) => {
+                        return <p key={index}>{dream.subjectLine}</p>
+                    })
+                }
             </div>
         </div>
     )
