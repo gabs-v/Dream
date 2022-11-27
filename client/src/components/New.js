@@ -15,9 +15,8 @@ const New = (props) => {
         .then((res) => {
             console.log(res)
             console.log(res.data)
-            
-            setDescription('');
-            setSubjectLine('');
+            setDescription("");
+            setSubjectLine("");
         })
         .catch((err) => console.log(err))
     }
